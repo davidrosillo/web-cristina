@@ -3,6 +3,7 @@ import ContactForm from './components/ContactForm';
 import WhatsAppButton from './components/WhatsAppButton';
 import ObfuscatedContact from './components/ObfuscatedContact';
 import AvatarImage from './components/AvatarImage';
+import DoctoraliaWidget from './components/DoctoraliaWidget';
 
 export default function Home() {
   return (
@@ -117,10 +118,16 @@ export default function Home() {
           </div>
 
           <div className="lg:w-1/2 w-full">
+            {/* Widget Doctoralia */}
+            <div className="bg-white p-4 rounded-2xl shadow-xl mb-8">
+              <h3 className="text-2xl font-bold mb-4 text-center text-[var(--color-primary)]">Reserva Online</h3>
+              <DoctoraliaWidget />
+            </div>
+
             <div className="bg-white text-[var(--color-text)] p-8 rounded-2xl shadow-2xl">
-              <h3 className="text-2xl font-bold mb-2 text-center text-[var(--color-primary)]">Contactar</h3>
+              <h3 className="text-2xl font-bold mb-2 text-center text-[var(--color-primary)]">O envíame un mensaje</h3>
               <p className="text-center mb-8 text-gray-500 text-sm">
-                Rellena el formulario y te responderé en breve.
+                Si no encuentras hora o prefieres escribirme.
               </p>
               <ContactForm />
             </div>
@@ -131,5 +138,4 @@ export default function Home() {
       <WhatsAppButton />
     </main>
   );
-
 }
