@@ -17,7 +17,7 @@ export default function GuiaZoom() {
 
                 <div className="prose prose-lg prose-slate mx-auto">
                     <p className="lead text-xl text-[var(--color-text-light)] mb-10">
-                        Para garantizar que nuestras sesiones online sean fluidas y provechosas, utilizo la plataforma **Zoom**. Es segura, fácil de usar y ofrece una excelente calidad de video y audio.
+                        Para garantizar que nuestras sesiones online sean fluidas y provechosas, utilizo la plataforma <b>Zoom</b>. Es segura, fácil de usar y ofrece una excelente calidad de video y audio.
                     </p>
 
                     <div className="bg-[var(--color-secondary)] p-8 rounded-2xl mb-12">
