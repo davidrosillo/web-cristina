@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-[var(--color-secondary)]">
+      <section className="relative min-h-[100dvh] md:h-[90vh] flex items-center justify-center overflow-hidden bg-[var(--color-secondary)] py-20 md:py-0">
         <div className="absolute inset-0 z-0 opacity-10">
           {/* Background pattern via CSS gradient to avoid 404 */}
           <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--color-primary)_1px,_transparent_1px)] bg-[length:24px_24px]"></div>
@@ -36,7 +36,7 @@ export default function Home() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             {/* Cristina's photo using client-side only component to prevent hydration errors */}
-            <div className="w-80 h-80 md:w-96 md:h-96 relative rounded-full shadow-2xl overflow-hidden border-4 border-white">
+            <div className="w-64 h-64 md:w-96 md:h-96 relative rounded-full shadow-2xl overflow-hidden border-4 border-white">
               <AvatarImage />
             </div>
           </div>
