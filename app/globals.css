@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 50, 50, 50;
+  --background-start-rgb: 250, 250, 248;
+  --background-end-rgb: 255, 255, 255;
+
+  /* Premium Palette */
+  --color-primary: #2C5F6D;
+  /* Deep Teal */
+  --color-secondary: #F2F0E9;
+  /* Soft Cream */
+  --color-accent: #D4A373;
+  /* Muted Gold */
+  --color-text: #333333;
+  --color-text-light: #666666;
+}
+
+body {
+  color: var(--color-text);
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  font-family: 'Inter', sans-serif;
+  /* Assuming Inter is default or we'll add it */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+  font-weight: 700;
+}

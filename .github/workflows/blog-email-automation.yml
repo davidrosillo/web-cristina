@@ -1,0 +1,42 @@
+name: Publish Blog via Email
+
+on:
+  schedule:
+    # Ejecutar cada hora a las 00:30
+    - cron: '30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  process-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install imap-simple mailparser mammoth turndown dotenv
+
+      - name: Process Emails
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          ALLOWED_SENDER: ${{ secrets.ALLOWED_SENDER }}
+          MAILBOX_FOLDER: ${{ secrets.MAILBOX_FOLDER }}
+        run: node scripts/process-email.js
+
+      - name: Convert DOCX to Markdown
+        run: node scripts/docx-to-md.js
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "📝 Blog post automático via Email"
+          file_pattern: 'posts/*.md docx_posts/*.docx'
