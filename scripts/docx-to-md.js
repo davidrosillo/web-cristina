@@ -33,7 +33,8 @@ async function convertDocxToMd() {
     for (const file of docxFiles) {
         const filePath = path.join(docxDir, file);
         const stats = fs.statSync(filePath);
-        const slug = file.replace('.docx', '');
+        const safeName = file.replace('.docx', '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        const slug = safeName || 'untitled-post'; // Fallback if name becomes empty
         const mdPath = path.join(postsDir, `${slug}.md`);
 
         // Check if MD exists and is newer than DOCX (to avoid unnecessary processing)
